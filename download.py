@@ -57,7 +57,7 @@ def main(args):
         if not os.path.exists(os.path.join(video_dir, 'videos')):
             os.makedirs(os.path.join(video_dir, 'videos'))
     
-    COMM.barrier()
+    torch.distributed.barrier()
 
     # ASSUMES THE CSV FILE HAS BEEN SPLIT INTO N PARTS
     partition_dir = args.csv_path.replace('.csv', f'_{args.partitions}')
